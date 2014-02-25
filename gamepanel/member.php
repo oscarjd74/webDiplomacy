@@ -361,7 +361,7 @@ class panelMember extends Member
 		{
 			if ( $voteName == 'Pause' && $this->Game->processStatus=='Paused' )
 				$voteName = 'Unpause';
-			$buf[]=l_t($voteName);
+			if ( $this->Game->anonDraw == 'No' || $voteName != 'Draw' ) $buf[]=l_t($voteName);
 		}
 
 		if( count($buf) )

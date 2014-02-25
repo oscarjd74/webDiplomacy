@@ -56,6 +56,7 @@ CREATE TABLE `wD_Backup_Games` (
   `phaseMinutes` smallint(5) unsigned NOT NULL DEFAULT '1440',
   `anon` enum('Yes','No') CHARACTER SET utf8 NOT NULL DEFAULT 'No',
   `pressType` enum('Regular','PublicPressOnly','NoPress') CHARACTER SET utf8 NOT NULL DEFAULT 'Regular',
+  `anonDraw` enum('Yes','No') CHARACTER SET utf8 NOT NULL DEFAULT 'No',
   `attempts` smallint(5) unsigned NOT NULL DEFAULT '0',
   `missingPlayerPolicy` enum('Normal','Strict') CHARACTER SET utf8 NOT NULL DEFAULT 'Normal'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -273,6 +274,7 @@ CREATE TABLE `wD_Games` (
   `phaseMinutes` smallint(5) unsigned NOT NULL DEFAULT '1440',
   `anon` enum('Yes','No') NOT NULL DEFAULT 'No',
   `pressType` enum('Regular','PublicPressOnly','NoPress') NOT NULL DEFAULT 'Regular',
+  `anonDraw` enum('Yes','No') CHARACTER SET utf8 NOT NULL DEFAULT 'No',
   `attempts` smallint(5) unsigned NOT NULL DEFAULT '0',
   `missingPlayerPolicy` enum('Normal','Strict') NOT NULL DEFAULT 'Normal',
   PRIMARY KEY (`id`),

@@ -201,6 +201,13 @@ class Game
 	 */
 	public $pressType;
 
+	/**
+	 * Anonymous draw votes or not, Yes or No
+	 *
+	 * @var string
+	 */
+	public $anonDraw;
+
 	public $lockMode='';
 
 	/**
@@ -326,6 +333,7 @@ class Game
 			g.minimumBet,
 			g.anon,
 			g.pressType,
+			g.anonDraw,
 			g.missingPlayerPolicy
 			FROM wD_Games g
 			WHERE g.id=".$this->id.' '.$this->lockMode);

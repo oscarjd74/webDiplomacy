@@ -49,7 +49,7 @@ if( isset($_REQUEST['newGame']) and is_array($_REQUEST['newGame']) )
 		$form = $_REQUEST['newGame']; // This makes $form look harmless when it is unsanitized; the parameters must all be sanitized
 
 		$input = array();
-		$required = array('variantID', 'name', 'password', 'passwordcheck', 'bet', 'potType', 'phaseMinutes', 'joinPeriod', 'anon', 'pressType', 'missingPlayerPolicy');
+		$required = array('variantID', 'name', 'password', 'passwordcheck', 'bet', 'potType', 'phaseMinutes', 'joinPeriod', 'anon', 'pressType', 'anonDraw', 'missingPlayerPolicy');
 
 		if ( !isset($form['missingPlayerPolicy']) )
 			$form['missingPlayerPolicy'] = 'Normal';
@@ -106,6 +106,7 @@ if( isset($_REQUEST['newGame']) and is_array($_REQUEST['newGame']) )
 		}
 		
 		$input['anon'] = ( (strtolower($input['anon']) == 'yes') ? 'Yes' : 'No' );
+		$input['anonDraw'] = ( (strtolower($input['anonDraw']) == 'yes') ? 'Yes' : 'No' );
 		
 		switch($input['pressType']) {
 			case 'PublicPressOnly':
@@ -139,6 +140,7 @@ if( isset($_REQUEST['newGame']) and is_array($_REQUEST['newGame']) )
 			$input['joinPeriod'], 
 			$input['anon'], 
 			$input['pressType'], 
+			$input['anonDraw'], 
 			$input['missingPlayerPolicy']);
 
 		// Create first Member record & object

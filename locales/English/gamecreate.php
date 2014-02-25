@@ -191,6 +191,19 @@ else
 	</li>
 
 	<li class="formlisttitle">
+		Anonymous draw votes:
+	</li>
+	<li class="formlistfield">
+		<input type="radio" name="newGame[anonDraw]" value="No" checked>No
+		<input type="radio" name="newGame[anonDraw]" value="Yes">Yes
+	</li>
+	<li class="formlistdesc">
+		If enabled players will not see each others draw votes.<br /><br />
+
+		<strong>Default:</strong> No, draw votes aren't anonymous
+	</li>
+
+	<li class="formlisttitle">
 		Joining pre-game period length: (5 minutes - 10 days)
 	</li>
 	<li class="formlistfield">

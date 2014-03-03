@@ -22,6 +22,8 @@
  * @package Map
  */
 
+if( isset($_REQUEST['mapType']) && $_REQUEST['mapType'] == 'svg.json' ) $_REQUEST['turn'] = 0;
+
 if( !isset($_REQUEST['variantID']) && ( !isset($_REQUEST['gameID']) || !isset($_REQUEST['turn']) ) )
 	die('gameID or turn not provided; cannot draw map');
 
@@ -54,7 +56,7 @@ if( !IGNORECACHE )
 		header("Cache-Control: no-store, no-cache, must-revalidate");
 		header("Cache-Control: post-check=0, pre-check=0", false);
 
-		if( Game::mapType()=='json' )
+		if( Game::mapType()=='json' || Game::mapType()=='svg.json' )
 			libHTML::serveImage($filename, 'text/plain');
 		else
 			libHTML::serveImage($filename);
@@ -141,6 +143,13 @@ elseif ( $mapType == 'json' )
 	require_once(l_r('board/orders/jsonBoardData.php'));
 	$filename=Game::mapFilename($Game->id, $turn, 'json');
 	file_put_contents($filename, jsonBoardData::getBoardTurnData($Game->id) );
+	libHTML::serveImage($filename, 'text/plain');
+}
+elseif ( $mapType == 'svg.json' )
+{
+	require_once(l_r('board/orders/svgBoardData.php'));
+	$filename=Game::mapFilename($Game->id, $latestTurn, 'svg.json');
+	file_put_contents($filename, svgBoardData::getBoardData($Game->id) );
 	libHTML::serveImage($filename, 'text/plain');
 }
 else

@@ -43,6 +43,11 @@ class ClassicVariant extends WDVariant {
 		 * adjudicatorPreGame extended for country starting unit data
 		 */
 		$this->variantClasses['adjudicatorPreGame'] = 'Classic';
+
+		/*
+		 * panelGameBoard extended for using SVG map
+		 */
+		$this->variantClasses['panelGameBoard'] = 'Classic';
 	}
 
 	public function turnAsDate($turn) {

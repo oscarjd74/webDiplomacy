@@ -40,6 +40,7 @@ class Game
 				case 'xml':
 				case 'small':
 				case 'json':
+				case 'svg.json':
 					return $_REQUEST['mapType'];
 			}
 
